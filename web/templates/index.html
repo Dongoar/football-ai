@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Football AI - Value Bets</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Football AI</h1>
+      <p>Probabilidades → Cuotas justas → Value (Edge/EV)</p>
+    </header>
+
+    <section class="card">
+      <div class="grid">
+        <div>
+          <label>Local</label>
+          <select id="home">
+            {% for t in teams %}
+              <option value="{{t}}">{{t}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div>
+          <label>Visita</label>
+          <select id="away">
+            {% for t in teams %}
+              <option value="{{t}}">{{t}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div>
+          <label>Max goles (0..N)</label>
+          <input id="max_goals" type="number" value="8" min="4" max="12"/>
+        </div>
+
+        <div class="actions">
+          <button id="btn">Calcular</button>
+        </div>
+      </div>
+
+      <details class="odds">
+        <summary>Ingresar cuotas (opcional)</summary>
+        <div class="grid odds-grid">
+          <div><label>1</label><input id="odds_home" type="number" step="0.01" placeholder="2.10"></div>
+          <div><label>X</label><input id="odds_draw" type="number" step="0.01" placeholder="3.40"></div>
+          <div><label>2</label><input id="odds_away" type="number" step="0.01" placeholder="3.50"></div>
+          <div><label>Over 2.5</label><input id="odds_over25" type="number" step="0.01" placeholder="1.95"></div>
+          <div><label>Under 2.5</label><input id="odds_under25" type="number" step="0.01" placeholder="1.85"></div>
+          <div><label>BTTS Sí</label><input id="odds_btts_yes" type="number" step="0.01" placeholder="1.80"></div>
+          <div><label>BTTS No</label><input id="odds_btts_no" type="number" step="0.01" placeholder="2.00"></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <div class="meta" id="meta"></div>
+      <div id="error" class="error hidden"></div>
+
+      <div class="topbar">
+        <button id="exportBtn" class="secondary">Exportar CSV</button>
+        <div class="hint">Top Picks: EV &gt; 0 y Edge &gt; 2%</div>
+      </div>
+
+      <div id="picks" class="picks"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Mercado</th>
+              <th>P(model)</th>
+              <th>Cuota justa</th>
+              <th>Cuota casa</th>
+              <th>Edge</th>
+              <th>EV</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Top marcadores</h2>
+      <div id="scores" class="scores"></div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

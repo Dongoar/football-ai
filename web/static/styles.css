@@ -1,0 +1,122 @@
+:root{
+  --bg:#0b1020;
+  --card:#111a33;
+  --text:#e7ecff;
+  --muted:#a8b3d6;
+  --accent:#6aa6ff;
+  --danger:#ff6b6b;
+  --border:rgba(255,255,255,.10);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial;
+  background:linear-gradient(180deg,var(--bg),#070a14);
+  color:var(--text);
+}
+
+.container{max-width:1050px;margin:0 auto;padding:22px}
+header{margin-bottom:16px}
+h1{margin:0;font-size:28px}
+p{margin:6px 0 0;color:var(--muted)}
+
+.card{
+  background:rgba(17,26,51,.75);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:14px 0;
+  backdrop-filter: blur(8px);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap:12px;
+}
+
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+select,input{
+  width:100%;
+  padding:10px 10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#0f1730;
+  color:var(--text);
+}
+
+.actions{display:flex;align-items:end}
+button{
+  width:100%;
+  padding:11px 14px;
+  border-radius:10px;
+  border:1px solid rgba(106,166,255,.35);
+  background:rgba(106,166,255,.15);
+  color:var(--text);
+  font-weight:600;
+  cursor:pointer;
+}
+button:hover{background:rgba(106,166,255,.22)}
+
+.odds{margin-top:10px}
+.odds summary{cursor:pointer;color:var(--accent)}
+.odds-grid{grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top:12px}
+
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px;border-bottom:1px solid var(--border);text-align:left}
+th{color:var(--muted);font-weight:600;font-size:12px}
+.meta{color:var(--muted);margin-top:6px}
+.error{margin-top:10px;color:var(--danger)}
+.hidden{display:none}
+
+.scores{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px
+}
+.pill{
+  border:1px solid var(--border);
+  background:#0f1730;
+  padding:8px 10px;
+  border-radius:999px;
+  color:var(--text);
+  font-size:13px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-top:10px;
+}
+.secondary{
+  border:1px solid var(--border);
+  background:#0f1730;
+}
+.secondary:hover{background:#141f3f}
+.hint{color:var(--muted);font-size:12px}
+
+.picks{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:12px 0 0;
+}
+.pick{
+  border:1px solid rgba(106,166,255,.25);
+  background:rgba(106,166,255,.08);
+  padding:10px 12px;
+  border-radius:12px;
+  min-width:220px;
+}
+.pick .t{font-weight:700}
+.pick .s{color:var(--muted);font-size:12px;margin-top:4px}
+
+@media (max-width:900px){
+  .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+  .odds-grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+}

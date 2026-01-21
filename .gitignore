@@ -1,0 +1,20 @@
+# Entorno virtual
+.venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+
+# Datos grandes
+data/raw/*.csv
+data/processed/*.csv
+
+# Modelos entrenados
+outputs/models/*.joblib
+
+# Reports
+outputs/reports/
+
+# Sistema
+.DS_Store

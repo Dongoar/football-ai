@@ -6,11 +6,7 @@ env/
 __pycache__/
 *.pyc
 
-# Datos grandes
-data/raw/*.csv
-data/processed/*.csv
-
-# Modelos entrenados
+# Modelos entrenados (opcional)
 outputs/models/*.joblib
 
 # Reports
